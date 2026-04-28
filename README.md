@@ -1,45 +1,142 @@
-# SaaS Dashboard - Spring Boot API
+# 🚀 SaaS Analytics Platform (Node.js + TypeScript + FastAPI)
 
-Backend service built with Spring Boot that provides core business logic for a SaaS analytics platform.
+Backend distribuido construido con **Node.js (TypeScript)** y **Python (FastAPI)**, enfocado en gestión de usuarios, analítica de negocio y predicción de métricas.
 
-This API is part of a multi-service architecture that powers a React-based SaaS dashboard with forecasting capabilities.
+## 🎯 Propósito
 
-## 🎯 Project Purpose
+Esta plataforma simula un sistema SaaS real que permite:
+* Gestión de usuarios y roles
+* Jerarquías organizacionales (managers)
+* Autenticación y autorización (JWT)
+* Visualización de métricas (dashboard)
+* Predicción de datos (forecasting)
 
-This service handles the core backend logic for a SaaS dashboard system, including:
+## 🏗️ Arquitectura
 
-- User management and hierarchical relationships
-- Role and group management
-- Data aggregation for analytics dashboards
-- Serving structured data for frontend visualization
+El sistema sigue una arquitectura desacoplada basada en microservicios:
 
-It is designed to integrate with multiple services:
+Frontend (React / Vue)
+        ↓
+Node.js API (TypeScript - Express)
+        ↓
+ ┌───────────────┬────────────────┐
+ │               │                │
+DB (Postgres)   FastAPI (Python)  External Services
+                (Forecast Engine)
 
-- React frontend dashboard
-- FastAPI forecasting microservice (Python)
+## ⚙️ Tecnologías
 
-## 🚀 Features
+### Backend principal
 
-- User Management (CRUD operations)
-- Role & Group Management
-- Hierarchical relationships (Manager → User structure)
-- RESTful API design
-- Clean layered architecture (Controller / Service / Repository)
-- Scalable backend structure for SaaS applications
+* Node.js
+* TypeScript
+* Express
+* Sequelize ORM
 
-## 🏗️ Architecture Role
+### Microservicio
 
-This service acts as the **core backend layer** in a distributed SaaS system:
+* Python
+* FastAPI
+* Machine Learning (Forecasting)
 
-- Handles business logic and data consistency
-- Serves data to frontend dashboards
-- Coordinates with external microservices
+### Base de datos
 
-## 🛠️ Tech Stack
+* PostgreSQL / MySQL
 
-- Java 17+
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- Maven
-- REST APIs
+### Otros
+
+* JWT Authentication
+* Clean Architecture
+* REST APIs
+
+## 👥 Gestión de Usuarios
+
+### Funcionalidades
+* CRUD de usuarios
+* Roles jerárquicos
+* Asignación de managers
+* Validaciones de negocio
+
+### Reglas implementadas
+* Email único (Service + DB)
+* Validación de formato de email (Domain)
+* Restricción de cambio de roles (ej: admin)
+* Validación de manager según jerarquía
+
+## 🧠 Jerarquía Organizacional
+Definida mediante:
+DIRECTOR → MANAGER → SALES
+
+## 📊 Dashboard & Analytics
+
+El sistema incluye un módulo de métricas para visualización en dashboards.
+
+### Funcionalidades
+
+* KPIs generales por usuario
+* Distribución por etapas (pipeline)
+* Tendencias en el tiempo
+
+### Características
+
+* Ejecución en paralelo (optimización)
+* Datos agregados listos para frontend
+* Multi-tenant (filtrado por usuario)
+
+## 🤖 Forecasting (Microservicio Python)
+
+La plataforma incluye un microservicio en **FastAPI** encargado de predicción de métricas.
+
+### Flujo
+
+Node.js API → FastAPI → Predicción → Respuesta
+
+## 🔐 Autenticación y Autorización
+
+* JWT Authentication
+* Middleware `authenticate`
+* Middleware `authorize` por roles
+
+
+## 📦 Instalación
+
+git clone <repo>
+cd project
+npm install
+
+## ▶️ Ejecución
+
+### Node.js API
+
+npm run dev
+
+### FastAPI (forecast)
+
+uvicorn main:app --reload
+
+## 🧪 Buenas prácticas implementadas
+
+* Clean Architecture
+* Separation of Concerns
+* DTO Pattern
+* Repository Pattern
+* Manejo centralizado de errores
+* Validaciones en dominio
+* Queries optimizadas (Promise.all)
+* Microservicios desacoplados
+
+## 🚀 Próximas mejoras
+
+* CI/CD pipeline
+* Testing (unit + integration)
+* Cache (Redis)
+* Event-driven architecture (Kafka)
+
+## 👨‍💻 Autor
+
+Proyecto enfocado en demostrar:
+
+* Diseño de sistemas backend reales
+* Integración de múltiples tecnologías
+* Aplicación de Machine Learning en negocio
+* Escalabilidad y buenas prácticas
