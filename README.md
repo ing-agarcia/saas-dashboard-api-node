@@ -2,6 +2,17 @@
 
 Distributed backend built with **Node.js (TypeScript)** and **Python (FastAPI)**, focused on user management, business analytics, and metrics forecasting.
 
+🧠 Business Case
+
+A sales analytics platform designed to help companies:
+
+Track sales performance
+Analyze pipeline efficiency
+Predict future revenue using machine learning
+Improve decision-making through data insights
+
+This project demonstrates how backend systems support data-driven business decisions in SaaS environments.
+
 ## 🎯 Purpose
 
 This platform simulates a real-world SaaS system that provides:
