@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        /* -----------------------------
+       💻 Configuración general
+        ------------------------------ */
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "esModuleInterop": true,
+        "strict": true,
+        "skipLibCheck": true,
+        /* -----------------------------
+       🧱 Alias y estructura de proyecto
+        ------------------------------ */
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": [
+                "*"
+            ]
+        },
+        "ignoreDeprecations": "6.0",
+        /* -----------------------------
+       ⚙️ Opciones adicionales
+        ------------------------------ */
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/types"
+        ]
+    },
+    "include": [
+        "src",
+        "src/shared/types"
+    ]
+}
