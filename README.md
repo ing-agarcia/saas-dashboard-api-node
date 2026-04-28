@@ -15,14 +15,10 @@ Esta plataforma simula un sistema SaaS real que permite:
 
 El sistema sigue una arquitectura desacoplada basada en microservicios:
 
-Frontend (React / Vue)
-        ↓
-Node.js API (TypeScript - Express)
-        ↓
- ┌───────────────┬────────────────┐
- │               │                │
-DB (Postgres)   FastAPI (Python)  External Services
-                (Forecast Engine)
+🔄 Flow
+Frontend → Node.js API → Database
+                     → FastAPI (Forecast Engine)
+                     → External Services
 
 ## ⚙️ Tecnologías
 
