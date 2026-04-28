@@ -1,106 +1,110 @@
 # 🚀 SaaS Analytics Platform (Node.js + TypeScript + FastAPI)
 
-Backend distribuido construido con **Node.js (TypeScript)** y **Python (FastAPI)**, enfocado en gestión de usuarios, analítica de negocio y predicción de métricas.
+Distributed backend built with **Node.js (TypeScript)** and **Python (FastAPI)**, focused on user management, business analytics, and metrics forecasting.
 
-## 🎯 Propósito
+## 🎯 Purpose
 
-Esta plataforma simula un sistema SaaS real que permite:
-* Gestión de usuarios y roles
-* Jerarquías organizacionales (managers)
-* Autenticación y autorización (JWT)
-* Visualización de métricas (dashboard)
-* Predicción de datos (forecasting)
+This platform simulates a real-world SaaS system that provides:
 
-## 🏗️ Arquitectura
+* User and role management
+* Organizational hierarchies (managers)
+* Authentication and authorization (JWT)
+* Metrics visualization (dashboard)
+* Data prediction (forecasting)
 
-El sistema sigue una arquitectura desacoplada basada en microservicios:
+## 🏗️ Architecture
 
-🔄 Flow
+The system follows a decoupled microservices-based architecture.
+
+### 🔄 Flow
+
 Frontend → Node.js API → Database
                      → FastAPI (Forecast Engine)
                      → External Services
 
-## ⚙️ Tecnologías
+## ⚙️ Technologies
 
-### Backend principal
+### Core Backend
 
 * Node.js
 * TypeScript
 * Express
 * Sequelize ORM
 
-### Microservicio
+### Microservice
 
 * Python
 * FastAPI
 * Machine Learning (Forecasting)
 
-### Base de datos
+### Database
 
 * PostgreSQL / MySQL
 
-### Otros
+### Other
 
 * JWT Authentication
 * Clean Architecture
 * REST APIs
 
-## 👥 Gestión de Usuarios
+## 👥 User Management
 
-### Funcionalidades
-* CRUD de usuarios
-* Roles jerárquicos
-* Asignación de managers
-* Validaciones de negocio
+### Features
 
-### Reglas implementadas
-* Email único (Service + DB)
-* Validación de formato de email (Domain)
-* Restricción de cambio de roles (ej: admin)
-* Validación de manager según jerarquía
+* User CRUD operations
+* Hierarchical roles
+* Manager assignment
+* Business validations
 
-## 🧠 Jerarquía Organizacional
-Definida mediante:
+### Implemented Rules
+
+* Unique email validation (Service + DB)
+* Email format validation (Domain)
+* Role change restrictions (e.g., admin protection)
+* Manager validation based on hierarchy
+
+## 🧠 Organizational Hierarchy
+
+Defined as:
 DIRECTOR → MANAGER → SALES
 
 ## 📊 Dashboard & Analytics
 
-El sistema incluye un módulo de métricas para visualización en dashboards.
+The system includes a metrics module for dashboard visualization.
 
-### Funcionalidades
+### Features
 
-* KPIs generales por usuario
-* Distribución por etapas (pipeline)
-* Tendencias en el tiempo
+* User-based KPIs
+* Pipeline stage distribution
+* Trend analysis over time
 
-### Características
+### Characteristics
 
-* Ejecución en paralelo (optimización)
-* Datos agregados listos para frontend
-* Multi-tenant (filtrado por usuario)
+* Parallel execution for optimization
+* Aggregated data ready for frontend
+* Multi-tenant support (user-based filtering)
 
-## 🤖 Forecasting (Microservicio Python)
+## 🤖 Forecasting (Python Microservice)
 
-La plataforma incluye un microservicio en **FastAPI** encargado de predicción de métricas.
+The platform includes a **FastAPI** microservice responsible for metrics prediction.
 
-### Flujo
+### Flow
 
-Node.js API → FastAPI → Predicción → Respuesta
+Node.js API → FastAPI → Prediction → Response
 
-## 🔐 Autenticación y Autorización
+## 🔐 Authentication & Authorization
 
 * JWT Authentication
-* Middleware `authenticate`
-* Middleware `authorize` por roles
+* `authenticate` middleware
+* Role-based `authorize` middleware
 
-
-## 📦 Instalación
+## 📦 Installation
 
 git clone <repo>
 cd project
 npm install
 
-## ▶️ Ejecución
+## ▶️ Run
 
 ### Node.js API
 
@@ -110,29 +114,30 @@ npm run dev
 
 uvicorn main:app --reload
 
-## 🧪 Buenas prácticas implementadas
+## 🧪 Best Practices Implemented
 
 * Clean Architecture
 * Separation of Concerns
 * DTO Pattern
 * Repository Pattern
-* Manejo centralizado de errores
-* Validaciones en dominio
-* Queries optimizadas (Promise.all)
-* Microservicios desacoplados
+* Centralized error handling
+* Domain validations
+* Optimized queries (`Promise.all`)
+* Decoupled microservices
 
-## 🚀 Próximas mejoras
+## 🚀 Roadmap
 
 * CI/CD pipeline
-* Testing (unit + integration)
-* Cache (Redis)
+* Automated testing (unit + integration)
+* Caching (Redis)
 * Event-driven architecture (Kafka)
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
-Proyecto enfocado en demostrar:
+Project focused on demonstrating:
 
-* Diseño de sistemas backend reales
-* Integración de múltiples tecnologías
-* Aplicación de Machine Learning en negocio
-* Escalabilidad y buenas prácticas
+* Real-world backend system design
+* Multi-technology integration
+* Application of Machine Learning in business
+* Scalability and best practices
+
