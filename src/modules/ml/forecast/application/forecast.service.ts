@@ -1,5 +1,6 @@
 import { ForecastRepository } from "../infrastructure/forecast.repository.js";
 import { ForecastMLClient } from "../infrastructure/forecast.ml-client.js";
+import { ValidationError } from "@/shared/domain/errors/ValidationError.js";
 
 type ChartData = {
     nameMonth: string;
@@ -14,10 +15,19 @@ export class ForecastService {
     ) { }
 
 
-    async getTrendForecast(userId: number) {
+    async getTrendForecast(userId: number, model: string) {
         const trend = await this.forecastRepository.getMonthlyTotals(userId);
 
-        const prediction = await this.forecastMLClient.predict(trend.map(t => t.total));
+        const dataPrediction = await this.forecastMLClient.predict(
+            trend.map(t => t.total)
+            , model
+        );
+
+        const { prediction } = dataPrediction;
+
+        if (prediction == null) {
+            throw new ValidationError(dataPrediction.message || "Invalid prediction response");
+        }
 
         const chartData = trend.map<ChartData>(item => ({
             nameMonth: new Date(item.month).toLocaleString("en", { month: "short" }),
