@@ -2,8 +2,9 @@
 
 Distributed backend system demonstrating multi-implementation architecture using **Node.js (TypeScript)** and **Python (FastAPI)**, focused on user management, business analytics, and metrics forecasting.
 
-```md
+```bash
 This architecture demonstrates how the same business domain can be implemented across different technologies while sharing a centralized analytical microservice.
+```
 
 ---
 
@@ -49,7 +50,7 @@ This platform simulates a real-world SaaS system that provides:
 
 The system follows a **decoupled microservices architecture**:
 
-```md
+```bash
    Frontend (React)
       ↓
    Backend (Node.js / Java)
@@ -57,7 +58,7 @@ The system follows a **decoupled microservices architecture**:
    Database (PostgreSQL / MySQL)
       ↘
          FastAPI (Forecast Microservice)
-```    
+```   
 
 ---
 
@@ -143,9 +144,9 @@ This service is consumed by both backend implementations for predictive analytic
 
 ## 🧠 Organizational Hierarchy
 
-´´´bash
-DIRECTOR → MANAGER → SALES
-´´´
+```bash
+ROOT → VP → DIRECTOR → MANAGER → SALES
+```
 
 ---
 
@@ -169,9 +170,9 @@ DIRECTOR → MANAGER → SALES
 
 The platform includes a **FastAPI microservice** responsible for metrics prediction.
 
-´´´bash
+```bash
 Node.js API → FastAPI → Prediction → Response
-´´´
+```
 
 ---
 
