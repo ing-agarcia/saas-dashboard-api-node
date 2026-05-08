@@ -10,6 +10,7 @@ import opportunitySummaryRoutes from "@/modules/opportunity/summary/http/opportu
 import cors from "cors";
 import { errorHandler } from "./shared/http/middlewares/errorHandler.js";
 import forecastRoutes from "./modules/ml/forecast/http/forecast.routes.js";
+import { RedisEventSubscriber } from "./shared/infrastructure/messaging/redis/redis.event.subscriber.js";
 
 const app = express();
 
@@ -30,5 +31,18 @@ app.use("/api/forecast", forecastRoutes);
 // Rutas públicas
 app.use('/api/auth', authRoutes);
 app.use(errorHandler);
+
+async function bootstrap() {
+
+    const subscriber = new RedisEventSubscriber();
+
+    await subscriber.start();
+
+    app.listen(3000, () => {
+        console.log("Server running");
+    });
+}
+
+bootstrap();
 
 export default app;

@@ -33,6 +33,12 @@ router.get(
 );
 
 router.get(
+    "/role/:roleId",
+    authMiddleware.authenticate,
+    asyncHandler(userController.findUsersByRole)
+);
+
+router.get(
     "/report",
     authMiddleware.authenticate,
     asyncHandler(userController.download)

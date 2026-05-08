@@ -4,10 +4,16 @@ import { asyncHandler } from "@/shared/http/middlewares/asyncHandler.js";
 
 const router = Router();
 
-router.get(
+router.post(
     "/",
     authMiddleware.authenticate,
     asyncHandler(opportunityController.createOpportunity)
+);
+
+router.get(
+    "/",
+    authMiddleware.authenticate,
+    asyncHandler(opportunityController.getOpportunities)
 );
 
 export default router;

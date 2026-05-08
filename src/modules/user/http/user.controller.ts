@@ -88,5 +88,16 @@ export class UserController {
         res.send(buffer);
     };
 
+    findUsersByRole = async (req: Request, res: Response) => {
+        const id = Number(req.params.roleId);
+
+        if (isNaN(id)) {
+            throw new ValidationError("Invalid role id");
+        }
+
+        const users = await this.userService.findUsersByRole(id);
+        return res.json(UserMapperEntity.toHierarchyDtoList(users));
+    };
+
 
 };

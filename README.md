@@ -97,6 +97,28 @@ This service is consumed by both backend implementations for predictive analytic
 
 ---
 
+## ⚡ Event-Driven Flow
+
+The platform implements an event-driven workflow using Redis Pub/Sub to decouple business events from consumers.
+
+### Domain Events
+
+- `OPPORTUNITY_CREATED`
+- `STAGE_CHANGED`
+- `PROBABILITY_INCREASED`
+
+### Architecture Flow
+
+```bash
+Opportunity Service
+      ↓
+ Redis Publisher
+      ↓
+ Redis Pub/Sub
+      ↓
+ Event Subscribers
+ ```
+
 ## ⚙️ Technologies
 
 ### Core Backend
@@ -225,7 +247,7 @@ uvicorn app.main:app --reload
 - CI/CD pipeline
 - Automated testing (unit + integration)
 - Caching (Redis)
-- Event-driven architecture (Kafka)
+- Migration from Redis Pub/Sub to Kafka
 
 ---
 

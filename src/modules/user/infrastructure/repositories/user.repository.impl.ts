@@ -179,4 +179,14 @@ export class UserRepositoryImpl implements UserRepository {
         return UserMapperModel.toEntityList(rows);
     }
 
+    async findUsersByRole(roleId: number): Promise<UserEntity[] | []> {
+
+        const users = await UserModel.findAll({
+            attributes: ["id", "name"],
+            where: { roleId: roleId },
+            include: ["role", "group", "manager"]
+        });
+
+        return UserMapperModel.toEntityList(users);
+    }
 }

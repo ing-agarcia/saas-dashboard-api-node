@@ -36,6 +36,8 @@ import { ForecastService } from "./modules/ml/forecast/application/forecast.serv
 import { ForecastMLClient } from "./modules/ml/forecast/infrastructure/forecast.ml-client.js";
 import { ForecastRepository } from "./modules/ml/forecast/infrastructure/forecast.repository.js";
 
+import { RedisEventPublisher } from "./shared/infrastructure/messaging/redis/redis.event.publisher.js";
+
 const userRepository = new UserRepositoryImpl();
 const productRepository = new ProductRepositoryImpl();
 const roleRepository = new RoleRepositoryImpl();
@@ -80,8 +82,10 @@ const groupService = new GroupService(
     groupRepository,
 )
 
+const publisher = new RedisEventPublisher();
 const opportunityService = new OpportunityService(
     opportunityRepository,
+    publisher,
 )
 
 const opportunitySummaryService = new OpportunitySummaryService(

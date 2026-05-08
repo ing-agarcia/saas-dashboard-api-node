@@ -92,4 +92,10 @@ export class UserService {
 
         return await this.userRepository.getManagersByRole(roleId);
     }
+
+    async findUsersByRole(roleId: number): Promise<UserEntity[]> {
+
+        return await this.userRepository.findUsersByRole(roleId);
+    }
+
 }

@@ -20,4 +20,6 @@ export interface UserRepository {
     getManagersByRole(roleId: number): Promise<UserEntity[] | []>;
 
     findAllForReport(userId: number): Promise<UserEntity[]>;
+
+    findUsersByRole(roleId: number): Promise<UserEntity[] | []>;
 }

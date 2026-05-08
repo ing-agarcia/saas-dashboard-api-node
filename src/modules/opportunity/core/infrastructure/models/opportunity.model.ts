@@ -51,6 +51,6 @@ OpportunityModel.init(
 );
 
 OpportunityModel.belongsTo(UserModel, {
-    foreignKey: "userId",
+    foreignKey: "ownerId",
     as: "user"
 });
